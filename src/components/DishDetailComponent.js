@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-function RenderDish({dish}) {
+function RenderDish({ dish }) {
   return (
     <div className="col-12 col-md-5 m-1">
       <Card>
@@ -15,15 +15,15 @@ function RenderDish({dish}) {
   );
 }
 
-function RenderComments({comments}) {
+function RenderComments({ comments }) {
   var comment = null
   if (comments) {
     comment = comments.map((c) => {
       return (
-          <ul className="list-unstyled" id={c.id}>
-            <li>{c.comment}</li>
-            <li>{"--"}{c.author}{", "}{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(c.date)))}</li>
-          </ul>
+        <ul className="list-unstyled" id={c.id}>
+          <li>{c.comment}</li>
+          <li>{"--"}{c.author}{", "}{new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(c.date)))}</li>
+        </ul>
       )
     })
   }
@@ -37,11 +37,13 @@ function RenderComments({comments}) {
 const DishDetail = (props) => {
   if (props.dish) {
     return (
-      <div className="row m-1">
-        <RenderDish dish={props.dish} />
-        <div className="col-12 col-md-5 m-1">
-        <h4>{"Comments"}</h4>
-        <RenderComments comments={props.dish.comments} />
+      <div className="container">
+        <div className="row m-1">
+          <RenderDish dish={props.dish} />
+          <div className="col-12 col-md-5 m-1">
+            <h4>{"Comments"}</h4>
+            <RenderComments comments={props.dish.comments} />
+          </div>
         </div>
       </div>
     )
