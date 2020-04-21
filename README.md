@@ -1,3 +1,6 @@
+# conFusion-react
+A fun project as a restaurant webpage developed with React
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
