@@ -69,8 +69,8 @@ class Header extends Component {
             <Form onSubmit={this.handleLogin}>
               <FormGroup>
                 <Label htmlFor="username">Username</Label>
-                <Input type="text" id="username" name="username"/>
-                  {/* innerRef={(input) => this.username = input} /> */}
+                <Input type="text" id="username" name="username"
+                  innerRef={(input) => this.username = input} />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="password">Password</Label>
@@ -81,8 +81,8 @@ class Header extends Component {
                 <Label check>
                   <Input type="checkbox" name="remember"
                     innerRef={(input) => this.remember = input} />
-                                    Remember me
-                                </Label>
+                    Remember me
+                </Label>
               </FormGroup>
               <Button type="submit" value="submit" color="primary">Login</Button>
             </Form>
