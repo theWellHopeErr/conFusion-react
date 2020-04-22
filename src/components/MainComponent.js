@@ -13,7 +13,7 @@ import { PROMOTIONS } from '../shared/promotions'
 
 import Home from './HomeComponent'
 import Contact from './ContactComponent'
-
+import About from './AboutComponent'
 
 class Main extends Component {
 
@@ -43,11 +43,11 @@ class Main extends Component {
       )
     }
 
-    const DishWithID = ({match}) => {
+    const DishWithID = ({ match }) => {
       return (
         <DishDetail
           dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishID, 10))[0]}
-          comments={this.state.comments.filter((comment) => comment.dishId == parseInt(match.params.dishID, 10))}
+          comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishID, 10))}
         />
       )
     }
@@ -60,6 +60,7 @@ class Main extends Component {
           <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} onClick={(dishID) => { this.onDishSelect(dishID) }} />} />
           <Route path='/menu/:dishID' component={DishWithID} />
           <Route path='/contactus' component={Contact} />
+          <Route path='/aboutus' component={() => <About leaders={this.state.leaders} />} />
           <Redirect to='/home' />
         </Switch>
         <Footer />
