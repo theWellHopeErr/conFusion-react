@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardImgOverlay, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LocalForm, Control, Errors } from 'react-redux-form';
-
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -100,7 +101,7 @@ function RenderDish({ dish }) {
           exitTransform: 'scale(0.5) translateY(-50%)'
         }}>
         <Card>
-          <CardImg top src={dish.image} alt={dish.name} />
+          <CardImg top src={baseurl + dish.image} alt={dish.name} />
           <CardBody>
             <CardTitle>{dish.name}</CardTitle>
             <CardText>{dish.description}</CardText>
@@ -165,7 +166,6 @@ const DishDetail = (props) => {
       <div className="container">
         <div className="row">
           <Breadcrumb>
-
             <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
             <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
           </Breadcrumb>
