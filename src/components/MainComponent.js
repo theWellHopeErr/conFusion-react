@@ -8,7 +8,6 @@ import Header from './HeaderComponent'
 import Menu from './MenuComponent'
 import DishDetail from './DishDetailComponent'
 import Footer from './FooterComponent'
-import { addComment, fetchDishes } from '../redux/ActionCreators';
 import { postComment, fetchDishes, fetchComments, fetchPromos } from '../redux/ActionCreators';
 
 import Home from './HomeComponent'
@@ -26,7 +25,6 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
   fetchDishes: () => { dispatch(fetchDishes()) },
   resetFeedbackForm: () => { dispatch(actions.reset('feedback')) },
   fetchComments: () => dispatch(fetchComments()),
