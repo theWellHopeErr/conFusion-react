@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { actions } from 'react-redux-form';
 
 import Header from './HeaderComponent'
 import Menu from './MenuComponent'
 import DishDetail from './DishDetailComponent'
 import Footer from './FooterComponent'
-
 import { addComment, fetchDishes } from '../redux/ActionCreators';
 
 import Home from './HomeComponent'
@@ -26,7 +26,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
-  fetchDishes: () => { dispatch(fetchDishes()) }
+  fetchDishes: () => { dispatch(fetchDishes()) },
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback')) }
 });
 
 
